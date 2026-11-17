@@ -1,6 +1,5 @@
 package com.rays.jdbc.preparedstatment;
 
-import java.nio.file.attribute.AclEntry;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -10,23 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import com.rays.jdbc.util.JDBCDataSource;
+
 public class Studentmodel {
-
-	ResourceBundle rb = ResourceBundle.getBundle("com.rays.jdbc.bundle.app");
-
-	String url = rb.getString("url");
-	String driver = rb.getString("driver");
-	String username = rb.getString("username");
-	String password = rb.getString("password");
 
 	public static void add(StudentBean bean) throws Exception {
 
 		Connection conn = null;
 
 		try {
-			Class.forName("driver");
-
-			conn = DriverManager.getConnection("url", "username", "password");
+			conn = JDBCDataSource.getConnection();
 
 			conn.setAutoCommit(false);
 
@@ -56,9 +48,7 @@ public class Studentmodel {
 		Connection conn = null;
 
 		try {
-			Class.forName("driver");
-
-			conn = DriverManager.getConnection("url", "username", "password");
+			conn = JDBCDataSource.getConnection();
 
 			conn.setAutoCommit(false);
 
@@ -89,9 +79,7 @@ public class Studentmodel {
 		Connection conn = null;
 
 		try {
-			Class.forName("driver");
-
-			conn = DriverManager.getConnection("url", "username", "password");
+			conn = JDBCDataSource.getConnection();
 
 			conn.setAutoCommit(false);
 
@@ -122,9 +110,7 @@ public class Studentmodel {
 		StudentBean bean = null;
 
 		try {
-			Class.forName("driver");
-
-			conn = DriverManager.getConnection("url", "username", "password");
+			conn = JDBCDataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement("select * from st_Student where id = ?");
 
@@ -156,10 +142,7 @@ public class Studentmodel {
 		StudentBean bean = null;
 
 		try {
-			Class.forName("driver");
-
-			conn = DriverManager.getConnection("url", "username", "password");
-
+			conn = JDBCDataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement("select * from st_Student where rollNo = ?");
 
 			pstmt.setInt(1, rollNo);
@@ -227,9 +210,7 @@ public class Studentmodel {
 
 		try {
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root");
+			conn = JDBCDataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 

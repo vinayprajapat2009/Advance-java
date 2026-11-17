@@ -10,12 +10,12 @@ public class TestStudentModel {
 
 	public static void main(String[] args) throws Exception {
 
-		// testAdd();
+		 testAdd();
 		// testupdate();
 		// testdelete();
 //		testfindByPk();
 		// testfindByrollNo();
-		testSearch();
+//		testSearch();
 	}
 
 	public static void testAdd() throws Exception {
@@ -23,7 +23,7 @@ public class TestStudentModel {
 		StudentBean bean = new StudentBean();
 		Studentmodel model = new Studentmodel();
 
-		bean.setId(11);
+		bean.setId(10);
 		bean.setFirstName("jay");
 		bean.setLastName("yadav");
 		bean.setRollNo(1111);
